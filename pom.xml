@@ -176,6 +176,9 @@
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
+				<configuration>
+					<name>centili.war</name>
+				</configuration>
 			</plugin>
 		
 		</plugins>
