@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+			http://maven.apache.org/POM/4.0.0
+			http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.centili</groupId>
+	<artifactId>centili-crud-rest-service</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	
+	<name>Centili - CRUD REST Service</name>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Hibernate -->
+		<hibernate.version>4.3.11.Final</hibernate.version>
+	</properties>
+	
+	<dependencyManagement>
+		<dependencies>
+		
+			<!-- H2 Database -->
+			<dependency>
+			    <groupId>com.h2database</groupId>
+			    <artifactId>h2</artifactId>
+			    <version>1.4.193</version>
+			</dependency>
+			
+			<!-- Hibernate -->
+			<dependency>
+			    <groupId>org.hibernate</groupId>
+			    <artifactId>hibernate-core</artifactId>
+			    <version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+		    	<groupId>org.hibernate</groupId>
+		    	<artifactId>hibernate-entitymanager</artifactId>
+		    	<version>${hibernate.version}</version>
+			</dependency>
+		
+			<!-- Hibernate JPA -->
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+    			<version>1.0.0.Final</version>
+			</dependency>
+			
+			<!-- Java Inject -->
+			<dependency>
+    			<groupId>javax.inject</groupId>
+    			<artifactId>javax.inject</artifactId>
+    			<version>1</version>
+			</dependency>
+			
+			<!-- JBoss EJB API -->
+			<dependency>
+			    <groupId>org.jboss.spec.javax.ejb</groupId>
+			    <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+			    <version>1.0.0.Final</version>
+			</dependency>
+				
+			<!-- RESTEasy -->
+			<dependency>
+			    <groupId>org.jboss.resteasy</groupId>
+			    <artifactId>resteasy-jaxrs</artifactId>
+			    <version>3.0.24.Final</version>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+	
+		<!-- H2 Database -->
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Hibernate JPA -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	
+		<!-- Java Inject -->
+		<dependency>
+    		<groupId>javax.inject</groupId>
+    		<artifactId>javax.inject</artifactId>
+    		<scope>provided</scope>
+    	</dependency>		
+	
+		<!-- JBoss EJB API -->
+		<dependency>
+		    <groupId>org.jboss.spec.javax.ejb</groupId>
+		    <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+			
+		<!-- RESTEasy -->
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jaxrs</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	
+	</dependencies>
+	
+	<build>
+		
+		<pluginManagement>
+			<plugins>
+			
+				<!-- Maven Plugins -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.7.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>3.2.0</version>
+				</plugin>
+				
+				<!-- Wildfly Maven Plugin -->
+				<plugin>
+					<groupId>org.wildfly.plugins</groupId>
+					<artifactId>wildfly-maven-plugin</artifactId>
+					<version>1.2.1.Final</version>
+				</plugin>
+				
+			</plugins>
+		</pluginManagement>
+		
+		<plugins>
+			
+			<!-- Maven Plugins -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<archiveClasses>true</archiveClasses>
+				</configuration>
+			</plugin>
+			
+			<!-- Wildfly Maven Plugin -->
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+			</plugin>
+		
+		</plugins>
+	</build>
+	
+</project>
