@@ -25,6 +25,21 @@ public class DocumentItem implements Serializable {
 
     private Long _price;
 
+    @Override
+    public boolean equals(Object object) {
+	if (this == object) { return true; }
+	if (object == null) { return false; }
+	if (getClass() != object.getClass()) { return false; }
+	DocumentItem other = (DocumentItem) object;
+	if (_document == null) {
+	    if (other._document != null) { return false; }
+	} else if (!_document.equals(other._document)) { return false; }
+	if (_id == null) {
+	    if (other._id != null) { return false; }
+	} else if (!_id.equals(other._id)) { return false; }
+	return true;
+    }
+
     @ManyToOne
     @JoinColumn(name = "DOCUMENT_ID", nullable = false)
     public Document getDocument() {
@@ -46,6 +61,15 @@ public class DocumentItem implements Serializable {
     @Column(name = "PRICE")
     public Long getPrice() {
 	return _price;
+    }
+
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((_document == null) ? 0 : _document.hashCode());
+	result = prime * result + ((_id == null) ? 0 : _id.hashCode());
+	return result;
     }
 
     public void setDocument(Document document) {
