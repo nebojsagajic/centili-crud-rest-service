@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -25,6 +25,52 @@
 	<dependencyManagement>
 		<dependencies>
 		
+			<!-- Arquillian -->
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>1.3.0.Final</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <!-- Arquillian REST Client -->
+			<dependency>
+				<groupId>org.jboss.arquillian.extension</groupId>
+				<artifactId>arquillian-rest-client-impl-3x</artifactId>
+				<version>1.0.0.Alpha4</version>
+			</dependency>
+
+			<!-- Arquillian Container -->
+            <dependency>
+				<groupId>org.wildfly.arquillian</groupId>
+				<artifactId>wildfly-arquillian-container-embedded</artifactId>
+				<version>2.1.0.Final</version>
+			</dependency>
+            
+            <!-- ShrinkWrap -->
+            <dependency>
+			    <groupId>org.jboss.shrinkwrap.resolver</groupId>
+    			<artifactId>shrinkwrap-resolver-bom</artifactId>
+    			<version>3.1.3</version>
+    			<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+			<!-- JUnit -->
+			<dependency>
+            	<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+			</dependency>
+
+			<!-- JBoss LogManager -->
+			<dependency>
+    			<groupId>org.jboss.logmanager</groupId>
+    			<artifactId>jboss-logmanager</artifactId>
+				<version>2.0.7.Final</version>
+			</dependency>
+								
 			<!-- H2 Database -->
 			<dependency>
 			    <groupId>com.h2database</groupId>
@@ -64,12 +110,29 @@
 			    <artifactId>jboss-ejb-api_3.2_spec</artifactId>
 			    <version>1.0.0.Final</version>
 			</dependency>
-				
-			<!-- RESTEasy -->
+			
+			<!-- JBoss RESTEasy -->
+			<dependency>
+		    	<groupId>org.jboss.resteasy</groupId>
+		    	<artifactId>resteasy-client</artifactId>
+				<version>3.0.24.Final</version>
+			</dependency>
 			<dependency>
 			    <groupId>org.jboss.resteasy</groupId>
 			    <artifactId>resteasy-jaxrs</artifactId>
 			    <version>3.0.24.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jackson2-provider</artifactId>
+			    <version>3.0.24.Final</version>
+			</dependency>
+						
+			<!-- SLF4J -->
+			<dependency>
+    			<groupId>org.slf4j</groupId>
+    			<artifactId>slf4j-api</artifactId>
+				<version>1.5.6</version>
 			</dependency>
 			
 		</dependencies>
@@ -77,6 +140,48 @@
 
 	<dependencies>
 	
+		<!-- Arquillian -->
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Arquillian REST Client -->
+		<dependency>
+			<groupId>org.jboss.arquillian.extension</groupId>
+			<artifactId>arquillian-rest-client-impl-3x</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+        <!-- Arquillian Container -->
+        <dependency>
+            <groupId>org.wildfly.arquillian</groupId>
+            <artifactId>wildfly-arquillian-container-embedded</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+		<!-- ShrinkWrap -->
+		<dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+		<!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+				
+		<!-- JBoss LogManager -->
+		<dependency>
+    		<groupId>org.jboss.logmanager</groupId>
+    		<artifactId>jboss-logmanager</artifactId>
+			<scope>test</scope>
+		</dependency>
+						
 		<!-- H2 Database -->
 		<dependency>
 		    <groupId>com.h2database</groupId>
@@ -108,7 +213,7 @@
     		<groupId>javax.inject</groupId>
     		<artifactId>javax.inject</artifactId>
     		<scope>provided</scope>
-    	</dependency>		
+    	</dependency>
 	
 		<!-- JBoss EJB API -->
 		<dependency>
@@ -116,18 +221,34 @@
 		    <artifactId>jboss-ejb-api_3.2_spec</artifactId>
 			<scope>provided</scope>
 		</dependency>
-			
-		<!-- RESTEasy -->
+		
+		<!-- JBoss RESTEasy -->
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-client</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 		    <groupId>org.jboss.resteasy</groupId>
 		    <artifactId>resteasy-jaxrs</artifactId>
 			<scope>provided</scope>
 		</dependency>
-	
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson2-provider</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+				
+		<!-- SLF4J -->
+		<dependency>
+    		<groupId>org.slf4j</groupId>
+    		<artifactId>slf4j-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+				
 	</dependencies>
 	
 	<build>
-		
 		<pluginManagement>
 			<plugins>
 			
@@ -137,6 +258,26 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.7.0</version>
 				</plugin>
+				<plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-dependency-plugin</artifactId>
+    				<version>3.0.2</version>
+                </plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.19.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-surefire-plugin</artifactId>
+	                <version>2.20.1</version>
+                </plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
@@ -154,8 +295,6 @@
 		</pluginManagement>
 		
 		<plugins>
-			
-			<!-- Maven Plugins -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -165,22 +304,52 @@
 				</configuration>
 			</plugin>
 			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-distribution</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.wildfly</groupId>
+                                    <artifactId>wildfly-dist</artifactId>
+                                    <version>11.0.0.Final</version>
+                                    <type>zip</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>target</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                	<forkCount>1</forkCount>
+                	<reuseForks>false</reuseForks>
+            		<systemPropertyVariables>
+        		       	<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+    		    	</systemPropertyVariables>
+				</configuration>
+            </plugin>
+            <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<archiveClasses>true</archiveClasses>
 				</configuration>
 			</plugin>
-			
-			<!-- Wildfly Maven Plugin -->
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
-				<configuration>
-					<name>centili.war</name>
-				</configuration>
 			</plugin>
-		
 		</plugins>
 	</build>
 	
