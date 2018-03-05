@@ -16,10 +16,12 @@
 	<name>Centili - CRUD REST Service</name>
 	
 	<properties>
+	
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
 		<!-- Hibernate -->
 		<hibernate.version>4.3.11.Final</hibernate.version>
+		
 	</properties>
 	
 	<dependencyManagement>

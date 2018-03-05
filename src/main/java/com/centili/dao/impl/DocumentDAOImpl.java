@@ -11,8 +11,8 @@ import com.centili.model.Document;
 @Local(DocumentDAO.class)
 public class DocumentDAOImpl extends AbstractGenericDAO<Document> implements DocumentDAO {
 
-    public DocumentDAOImpl() {
-	super(Document.class);
-    }
+	public DocumentDAOImpl() {
+		super(Document.class);
+	}
 
 }
